@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %} 
+{% block contenido %}
+        <div class="panel-heading">
+                <div class='panel-heading text-center'>
+                    No tiene los privilegios necesarios para acceder al sitio, por favor contacte al administrador
+                </div>
+        </div>
+        <p></p>
+        <div class="panel-body">
+                    <h4 class="text-danger text-center">
+                        Tu Usuario no tiene suficientes privilegios<p></p>
+                        para cargar la opción solicitada.
+                    <small>
+                        Para poder acceder, debes iniciar sesión con un usuario con privilegios necesarios.
+                    </small>
+                    </h4>
+        </div>
+        <p></p>
+        <div class="panel-footer">
+                <div class='panel-footer text-center'>
+                <a href="{{request.META.HTTP_REFERER}}" class="btn btn-info">
+                    <span class="fas fa-thumbs-up"></span> Ok, Continuar</a>
+                &nbsp;&nbsp;
+                <a href="{% url 'generales:logout' %}" class="btn btn-warning">
+                    <span class="fas fa-user-secret"></span> Ingresar con otro Usuario</a>
+                </div>
+        </div>
+
+{% endblock contenido %}

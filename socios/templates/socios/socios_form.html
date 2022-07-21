@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block inicio %}
+
+<form method="POST">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h6 class="m-0 font-weight-bold text-primary">Editar o dar de alta nuevo Socio</h6>
+        <HR>
+        </div>
+        <div class="panel-body" >
+            {% csrf_token %} <!-- Token de seguridad DJANGO -->
+            {{ form.as_p }}
+            <HR>
+            <button type="submit" class="btn btn-success">Guardar</button>
+            &nbsp;&nbsp;
+            <a href="{% url 'socios:socios_list' %}" class="btn btn-danger">Cancelar</a>
+        </div>
+    </div>
+</form>
+
+{% endblock inicio %}
+
+{% block scripts_local %}  
+ <script>  
+  $(function () {  
+   $("#id_fecha_nacimiento").datetimepicker({  
+       format: 'd/m/Y',  
+       timepicker:false  
+   });  
+  });  
+ </script>  
+ {% endblock scripts_local %}  
